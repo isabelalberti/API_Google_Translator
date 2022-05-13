@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Diaana</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+  </head>
+
+
+
+  <body>
+      <div id="google_translate_element" class="boxTradutor"></div>
+
+      
+      <ul class="nav container">
+          <li>
+              <a href="javascript:trocarIdioma('pt')"
+                 class="pt"
+                 onclick="ChangeLang('pt')"
+                 title="Traduzir para portugues">
+                  <img alt="portugues brasil" src="./assets/brasil.png" />
+              </a>
+          </li>
+
+          <li>
+              <a href="javascript:trocarIdioma('en')" class="en" onclick="ChangeLang('en')"
+                 title="Translate to English"><img alt="ingles" src="./assets/estados-unidos-da-america.png"></a>
+
+          </li>
+
+          <li>
+              <a href="javascript:trocarIdioma('es')"
+                 class="es"
+                 onclick="ChangeLang('es')"
+                 title="Traducir al espanhol">
+                  <img alt="espanhol" src="./assets/espanha.png" />
+              </a>
+          </li>
+
+          <li>
+              <a href="javascript:trocarIdioma('it')"
+                 class="it"
+                 onclick="ChangeLang('it')"
+                 title="Traduci in italiano">
+                  <img alt="italiano" src="./assets/italia.png" />
+              </a>
+          </li>
+
+         <li>
+              <a href="javascript:trocarIdioma('fr')"
+                 class="fr"
+                 onclick="ChangeLang('fr')"
+                 title="Traduire en francais">
+                  <img alt="françês" src="./assets/franca.png" />
+              </a>
+          </li>
+      </ul>
+
+      <h1 class="depoiments1-title-content">Dr. Augusto Cury</h1>
+      <p class="depoiments1-content">
+          Dr. Augusto Cury, tornou-se o psiquiatra mais lido do mundo com livros
+          traduzidos para mais de 70 países e autor mais lido nas últimas duas
+          décadas no Brasil.
+      </p>
+      <p class="depoiments1-content">
+          Recebeu o prêmio de melhor ficção do ano de 2009 da Academia Chinesa
+          de Literatura pelo livro O Vendedor de Sonhos e, também, é membro de
+          Honra da Academia de Gênios do Instituto Europeu de Inteligência.
+      </p>
+      <p class="depoiments1-content">
+          Fundador de diversos projetos de impactos na nossa sociedade, tem mais
+          de 80 livros publicados, entre eles coordenou a obra Solução Pacífica
+          de Conflitos, com múltiplos juristas renomados como participantes.
+          Suas obras possuem adaptações para cinema e teatro.
+      </p>
+      <p class="depoiments1-content">
+          “É fundamental o uso da tecnologia e da Inteligência Artificial, a
+          helthtech para o processo melhorias da qualidade de vida, no
+          aceleramento do diagnóstico e no avanço da medicina” - Augusto Cury
+      </p>
+
+
+      <!--Javascript-->
+
+      <script type="text/javascript">
+          var comboGoogleTradutor = null; //Varialvel global
+
+          function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                  pageLanguage: 'pt',
+                  includedLanguages: 'en,es,it,fr',
+                  layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+              }, 'google_translate_element');
+
+              comboGoogleTradutor = document.getElementById("google_translate_element").querySelector(".goog-te-combo");
+          }
+
+          function changeEvent(el) {
+              if (el.fireEvent) {
+                  el.fireEvent('onchange');
+              } else {
+                  var evObj = document.createEvent("HTMLEvents");
+
+                  evObj.initEvent("change", false, true);
+                  el.dispatchEvent(evObj);
+              }
+          }
+
+          function trocarIdioma(sigla) {
+              if (comboGoogleTradutor) {
+                  comboGoogleTradutor.value = sigla;
+                  changeEvent(comboGoogleTradutor);//Dispara a troca
+              }
+          }
+      </script>
+      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+</html>
