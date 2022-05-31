@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="main.scss" />
+
+    <!-- needs to be right at the top to prevent Chrome from reloading favicon on every route change -->
+    <link rel="alternate" hreflang="en" href="/" />
+    <link rel="alternate" hreflang="" href="/" />
+    <link rel="alternate" hreflang="" href="/" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>Diaana</title>
+
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  </head>
+
+  <body>
+ <p>
+    Olá, sou Isabel e estou tendo trabalho!
+ </p>
+
+    <div id="google_translate_element"></div>
+    
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <select class="select-language" onclick="ChangeLang(this.value)">
+
+        <option value="pt">Português</option>
+
+        <option value="en">Inglês</option>
+
+        <option value="es">Espanhol</option>
+
+        <option value="it">Italiano</option>
+
+        <option value="de">Alemão</option>
+
+        <option value="fr">Francês</option>
+
+    </select>
+
+    <!--Javascript-->
+
+    <script type="text/javascript">
+     function ChangeLang(a) {
+    var b, elemento = "";
+    if (document.createEvent) {
+        var c = document.createEvent("HTMLEvents");
+        c.initEvent("click", true, true)
+    }
+    if (a == 'pt') {
+        elemento = $(".goog-te-banner-frame:eq(0)").contents().find("button[id*='restore']")
+    } else {
+        switch (a) {
+            case 'de':
+            b = "alem";
+            break;
+            case 'es':
+            b = "espanhol";
+            break;
+            case 'fr':
+            b = "fran";
+            break;
+            case 'en':
+            b = "ing";
+            break;
+            case 'it':
+            b = "italiano";
+            break;
+            case 'pt':
+            b = "português";
+            break
+        }
+        elemento = $(".goog-te-menu-frame:eq(0)").contents().find("span:contains('" + b + "')");
+    }
+    if (elemento.length > 0) {
+        if (document.createEvent) {
+            elemento[0].dispatchEvent(c)
+        } else {
+            elemento[0].click()
+        }
+    }
+}
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'pageLanguage',
+        autoDisplay: false,
+        includedLanguages: 'de,es,fr,en,it,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element');
+}
+    </script>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+
+    <app-root></app-root>
+  </body>
+</html>

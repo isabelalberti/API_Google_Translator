@@ -1,0 +1,26 @@
+
+#google_translate_element {
+    display: none;
+  }
+  
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+  
+  body {
+    position: static !important;
+    top: 0 !important;
+  }
+  
+.linguas li {
+    list-style-type: none;
+    padding: 3px;
+  }
+  
+  .linguas {
+    position: relative;
+    z-index: 10;
+    display: inline-flex;
+    margin-top: 2px;
+    padding-left: 90%;
+  }
